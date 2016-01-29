@@ -9,9 +9,9 @@ Requirement:
 
 2 steps to run the Calculator program from the command line:
   1. To prepare the environment 
-     > source setenv
+   > source setenv
   2. To compile and execute
-     > mycalc
+   > mycalc
 
 Try inputs such as:
  1+2;
