@@ -1,0 +1,2 @@
+export PATH=${PATH}:.
+export CLASSPATH=${CLASSPATH}:.:JLex:JavaCup
