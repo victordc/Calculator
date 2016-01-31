@@ -211,7 +211,7 @@ class Yylex implements java_cup.runtime.Scanner {
 ",12:33,0:2")[0];
 
 	private int yy_rmap[] = unpackFromString(1,14,
-"0,1:10,2,1:2")[0];
+"0,1:3,2,1:6,2,1:2")[0];
 
 	private int yy_nxt[][] = unpackFromString(3,13,
 "1,2,3,4,5,6,7,8,9,10,11,12,13,-1:23,11,-1:2");
