@@ -203,17 +203,18 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 9 */ YY_NO_ANCHOR,
 		/* 10 */ YY_NO_ANCHOR,
 		/* 11 */ YY_NO_ANCHOR,
-		/* 12 */ YY_NO_ANCHOR
+		/* 12 */ YY_NO_ANCHOR,
+		/* 13 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"11:9,10:2,11,10:2,11:18,10,11:4,6,11:2,7,8,4,2,11,3,11,5,9:10,11,1,11:68,0:" +
-"2")[0];
+"12:9,11:2,12,11:2,12:18,11,12:4,6,12:2,8,9,4,2,12,3,12,5,10:10,12,1,12:34,7" +
+",12:33,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,13,
-"0,1:9,2,1:2")[0];
+	private int yy_rmap[] = unpackFromString(1,14,
+"0,1:10,2,1:2")[0];
 
-	private int yy_nxt[][] = unpackFromString(3,12,
-"1,2,3,4,5,6,7,8,9,10,11,12,-1:21,10,-1:2");
+	private int yy_nxt[][] = unpackFromString(3,13,
+"1,2,3,4,5,6,7,8,9,10,11,12,13,-1:23,11,-1:2");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -288,24 +289,28 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -8:
 						break;
 					case 8:
-						{ return new Symbol(sym.LPAREN); }
+						{ return new Symbol(sym.POW); }
 					case -9:
 						break;
 					case 9:
-						{ return new Symbol(sym.RPAREN); }
+						{ return new Symbol(sym.LPAREN); }
 					case -10:
 						break;
 					case 10:
-						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+						{ return new Symbol(sym.RPAREN); }
 					case -11:
 						break;
 					case 11:
-						{ /* ignore white space. */ }
+						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
 					case -12:
 						break;
 					case 12:
-						{ System.err.println("Illegal character: "+yytext()); }
+						{ /* ignore white space. */ }
 					case -13:
+						break;
+					case 13:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -14:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
