@@ -206,19 +206,24 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 12 */ YY_NO_ANCHOR,
 		/* 13 */ YY_NO_ANCHOR,
 		/* 14 */ YY_NO_ANCHOR,
-		/* 15 */ YY_NOT_ACCEPT,
-		/* 16 */ YY_NO_ANCHOR
+		/* 15 */ YY_NO_ANCHOR,
+		/* 16 */ YY_NO_ANCHOR,
+		/* 17 */ YY_NO_ANCHOR,
+		/* 18 */ YY_NOT_ACCEPT,
+		/* 19 */ YY_NO_ANCHOR,
+		/* 20 */ YY_NO_ANCHOR,
+		/* 21 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"15:9,14:2,15,14:2,15:18,14,15:4,6,15:2,8,9,4,2,15,3,15,5,10,13:9,15,1,15:5," +
-"12:6,15:17,11,15:5,7,15:2,12:6,15:17,11,15:7,0:2")[0];
+"17:9,16:2,17,16:2,17:18,16,17:4,6,17:2,10,11,4,2,17,3,17,5,13,12:9,17,1,7,1" +
+"7,8,17:2,15:6,17:17,14,17:5,9,17:2,15:6,17:17,14,17:7,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,17,
-"0,1:3,2,1:6,3,1:2,4:2,2")[0];
+	private int yy_rmap[] = unpackFromString(1,22,
+"0,1:3,2,1:3,3,1:3,4,1,2,1:2,5:2,6,7,1")[0];
 
-	private int yy_nxt[][] = unpackFromString(5,16,
-"1,2,3,4,5,6,7,8,9,10,11,12:2,16,13,12,-1:26,16,-1:2,16,-1:12,16,15,-1,16,-1" +
-":12,14,-1,14:2,-1:2");
+	private int yy_nxt[][] = unpackFromString(8,18,
+"1,2,3,4,5,6,7,8,19,9,10,11,12,20,21:2,13,21,-1:30,14:2,-1:11,15,-1:22,12:2," +
+"-1:16,17:2,-1,17,-1:10,16,-1:21,12:2,18,-1:3");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -293,23 +298,23 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -8:
 						break;
 					case 8:
-						{ return new Symbol(sym.POW); }
+						{ System.err.println("Illegal character: "+yytext()); }
 					case -9:
 						break;
 					case 9:
-						{ return new Symbol(sym.LPAREN); }
+						{ return new Symbol(sym.POW); }
 					case -10:
 						break;
 					case 10:
-						{ return new Symbol(sym.RPAREN); }
+						{ return new Symbol(sym.LPAREN); }
 					case -11:
 						break;
 					case 11:
-						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+						{ return new Symbol(sym.RPAREN); }
 					case -12:
 						break;
 					case 12:
-						{ System.err.println("Illegal character: "+yytext()); }
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
 					case -13:
 						break;
 					case 13:
@@ -317,12 +322,32 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -14:
 						break;
 					case 14:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
 					case -15:
 						break;
-					case 16:
-						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+					case 15:
+						{ return new Symbol(sym.LSHIFT); }
 					case -16:
+						break;
+					case 16:
+						{ return new Symbol(sym.RSHIFT); }
+					case -17:
+						break;
+					case 17:
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+					case -18:
+						break;
+					case 19:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -19:
+						break;
+					case 20:
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+					case -20:
+						break;
+					case 21:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -21:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
