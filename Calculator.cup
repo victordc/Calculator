@@ -9,10 +9,10 @@ parser code {:
 :}
 
 terminal SEMI, PLUS, MINUS, NOT, TIMES, MOD, DIVIDE, LSHIFT, RSHIFT, AND, XOR, OR, POW, LPAREN, RPAREN;
-terminal Integer INTEGER;
+terminal Long LONG;
 
 non terminal expr_list, expr_part;
-non terminal Integer expr;
+non terminal Long expr;
 
 precedence left PLUS, MINUS;
 precedence right NOT;
@@ -23,34 +23,34 @@ precedence left POW;
 
 expr_list ::= expr_list expr_part | expr_part;
 expr_part ::= expr:e {: System.out.println(" = "+e+";"); :} SEMI;
-expr      ::= INTEGER:n
+expr      ::= LONG:n
 	      {: RESULT=n; :}
             | MINUS expr:r
-	      {: RESULT=new Integer(0 - r.intValue()); :}
+	      {: RESULT=new Long(0 - r.longValue()); :}
             | expr:l PLUS expr:r
-	      {: RESULT=new Integer(l.intValue() + r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() + r.longValue()); :}
             | expr:l MINUS expr:r
-	      {: RESULT=new Integer(l.intValue() - r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() - r.longValue()); :}
             | NOT expr:r
-	      {: RESULT=new Integer(~ r.intValue()); :}
+	      {: RESULT=new Long(~ r.longValue()); :}
 	    | expr:l TIMES expr:r
-	      {: RESULT=new Integer(l.intValue() * r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() * r.longValue()); :}
 	    | expr:l DIVIDE expr:r
-	      {: RESULT=new Integer(l.intValue() / r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() / r.longValue()); :}
 	    | expr:l MOD expr:r
-	      {: RESULT=new Integer(l.intValue() % r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() % r.longValue()); :}
 	    | expr:l LSHIFT expr:r
-	      {: RESULT=new Integer(l.intValue() << r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() << r.longValue()); :}
 	    | expr:l RSHIFT expr:r
-	      {: RESULT=new Integer(l.intValue() >> r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() >> r.longValue()); :}
 	    | expr:l AND expr:r
-	      {: RESULT=new Integer(l.intValue() & r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() & r.longValue()); :}
 	    | expr:l XOR expr:r
-	      {: RESULT=new Integer(l.intValue() ^ r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() ^ r.longValue()); :}
 	    | expr:l OR expr:r
-	      {: RESULT=new Integer(l.intValue() | r.intValue()); :}
+	      {: RESULT=new Long(l.longValue() | r.longValue()); :}
 	    | expr:l POW expr:r
-	      {: RESULT=new Integer((int)Math.pow(l.intValue(),r.intValue())); :}
+	      {: RESULT=new Long((long)Math.pow(l.longValue(),r.longValue())); :}
 	    | LPAREN expr:e RPAREN
 	      {: RESULT=e; :}
 	    ;
