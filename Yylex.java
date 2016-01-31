@@ -200,16 +200,20 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 6 */ YY_NO_ANCHOR,
 		/* 7 */ YY_NO_ANCHOR,
 		/* 8 */ YY_NO_ANCHOR,
-		/* 9 */ YY_NO_ANCHOR
+		/* 9 */ YY_NO_ANCHOR,
+		/* 10 */ YY_NO_ANCHOR,
+		/* 11 */ YY_NO_ANCHOR,
+		/* 12 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"8:9,7,1,8,7,1,8:18,7,8:7,4,5,3,2,8:4,6:10,8,1,8:68,0:2")[0];
+"11:9,10:2,11,10:2,11:18,10,11:4,6,11:2,7,8,4,2,11,3,11,5,9:10,11,1,11:68,0:" +
+"2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,10,
-"0,1:6,2,1:2")[0];
+	private int yy_rmap[] = unpackFromString(1,13,
+"0,1:9,2,1:2")[0];
 
-	private int yy_nxt[][] = unpackFromString(3,9,
-"1,2,3,4,5,6,7,8,9,-1:15,7,-1:2");
+	private int yy_nxt[][] = unpackFromString(3,12,
+"1,2,3,4,5,6,7,8,9,10,11,12,-1:21,10,-1:2");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -268,28 +272,40 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -4:
 						break;
 					case 4:
-						{ return new Symbol(sym.TIMES); }
+						{ return new Symbol(sym.MINUS); }
 					case -5:
 						break;
 					case 5:
-						{ return new Symbol(sym.LPAREN); }
+						{ return new Symbol(sym.TIMES); }
 					case -6:
 						break;
 					case 6:
-						{ return new Symbol(sym.RPAREN); }
+						{ return new Symbol(sym.DIVIDE); }
 					case -7:
 						break;
 					case 7:
-						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+						{ return new Symbol(sym.MOD); }
 					case -8:
 						break;
 					case 8:
-						{ /* ignore white space. */ }
+						{ return new Symbol(sym.LPAREN); }
 					case -9:
 						break;
 					case 9:
-						{ System.err.println("Illegal character: "+yytext()); }
+						{ return new Symbol(sym.RPAREN); }
 					case -10:
+						break;
+					case 10:
+						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+					case -11:
+						break;
+					case 11:
+						{ /* ignore white space. */ }
+					case -12:
+						break;
+					case 12:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -13:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);

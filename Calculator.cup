@@ -8,14 +8,14 @@ parser code {:
 	}
 :}
 
-terminal SEMI, PLUS, TIMES, LPAREN, RPAREN;
+terminal SEMI, PLUS, MINUS, TIMES, MOD, DIVIDE, LPAREN, RPAREN;
 terminal Integer NUMBER;
 
 non terminal expr_list, expr_part;
 non terminal Integer expr;
 
-precedence left PLUS;
-precedence left TIMES;
+precedence left PLUS, MINUS;
+precedence left TIMES, DIVIDE, MOD;
 
 expr_list ::= expr_list expr_part | expr_part;
 expr_part ::= expr:e {: System.out.println(" = "+e+";"); :} SEMI;
@@ -23,8 +23,14 @@ expr      ::= NUMBER:n
 	      {: RESULT=n; :}
             | expr:l PLUS expr:r
 	      {: RESULT=new Integer(l.intValue() + r.intValue()); :}
+            | expr:l MINUS expr:r
+	      {: RESULT=new Integer(l.intValue() - r.intValue()); :}
 	    | expr:l TIMES expr:r
 	      {: RESULT=new Integer(l.intValue() * r.intValue()); :}
+	    | expr:l DIVIDE expr:r
+	      {: RESULT=new Integer(l.intValue() / r.intValue()); :}
+	    | expr:l MOD expr:r
+	      {: RESULT=new Integer(l.intValue() % r.intValue()); :}
 	    | LPAREN expr:e RPAREN
 	      {: RESULT=e; :}
 	    ;
