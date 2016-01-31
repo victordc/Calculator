@@ -328,7 +328,7 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -15:
 						break;
 					case 15:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+						{ return new Symbol(sym.INTEGER, new Integer(Integer.decode(yytext()))); }
 					case -16:
 						break;
 					case 16:
@@ -344,7 +344,7 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -19:
 						break;
 					case 19:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+						{ return new Symbol(sym.INTEGER, new Integer(Integer.decode(yytext()))); }
 					case -20:
 						break;
 					case 21:
@@ -352,7 +352,7 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -21:
 						break;
 					case 22:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+						{ return new Symbol(sym.INTEGER, new Integer(Integer.decode(yytext()))); }
 					case -22:
 						break;
 					case 23:

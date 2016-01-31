@@ -9,7 +9,7 @@ parser code {:
 :}
 
 terminal SEMI, PLUS, MINUS, NOT, TIMES, MOD, DIVIDE, LSHIFT, RSHIFT, AND, XOR, OR, POW, LPAREN, RPAREN;
-terminal Integer NUMBER;
+terminal Integer INTEGER;
 
 non terminal expr_list, expr_part;
 non terminal Integer expr;
@@ -23,7 +23,7 @@ precedence left POW;
 
 expr_list ::= expr_list expr_part | expr_part;
 expr_part ::= expr:e {: System.out.println(" = "+e+";"); :} SEMI;
-expr      ::= NUMBER:n
+expr      ::= INTEGER:n
 	      {: RESULT=n; :}
             | MINUS expr:r
 	      {: RESULT=new Integer(0 - r.intValue()); :}
