@@ -204,17 +204,21 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 10 */ YY_NO_ANCHOR,
 		/* 11 */ YY_NO_ANCHOR,
 		/* 12 */ YY_NO_ANCHOR,
-		/* 13 */ YY_NO_ANCHOR
+		/* 13 */ YY_NO_ANCHOR,
+		/* 14 */ YY_NO_ANCHOR,
+		/* 15 */ YY_NOT_ACCEPT,
+		/* 16 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"12:9,11:2,12,11:2,12:18,11,12:4,6,12:2,8,9,4,2,12,3,12,5,10:10,12,1,12:34,7" +
-",12:33,0:2")[0];
+"15:9,14:2,15,14:2,15:18,14,15:4,6,15:2,8,9,4,2,15,3,15,5,10,13:9,15,1,15:5," +
+"12:6,15:17,11,15:5,7,15:2,12:6,15:17,11,15:7,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,14,
-"0,1:3,2,1:6,2,1:2")[0];
+	private int yy_rmap[] = unpackFromString(1,17,
+"0,1:3,2,1:6,3,1:2,4:2,2")[0];
 
-	private int yy_nxt[][] = unpackFromString(3,13,
-"1,2,3,4,5,6,7,8,9,10,11,12,13,-1:23,11,-1:2");
+	private int yy_nxt[][] = unpackFromString(5,16,
+"1,2,3,4,5,6,7,8,9,10,11,12:2,16,13,12,-1:26,16,-1:2,16,-1:12,16,15,-1,16,-1" +
+":12,14,-1,14:2,-1:2");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -305,12 +309,20 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -12:
 						break;
 					case 12:
-						{ /* ignore white space. */ }
+						{ System.err.println("Illegal character: "+yytext()); }
 					case -13:
 						break;
 					case 13:
-						{ System.err.println("Illegal character: "+yytext()); }
+						{ /* ignore white space. */ }
 					case -14:
+						break;
+					case 14:
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+					case -15:
+						break;
+					case 16:
+						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+					case -16:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
