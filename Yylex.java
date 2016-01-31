@@ -211,22 +211,21 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 17 */ YY_NO_ANCHOR,
 		/* 18 */ YY_NO_ANCHOR,
 		/* 19 */ YY_NO_ANCHOR,
-		/* 20 */ YY_NO_ANCHOR,
-		/* 21 */ YY_NOT_ACCEPT,
+		/* 20 */ YY_NOT_ACCEPT,
+		/* 21 */ YY_NO_ANCHOR,
 		/* 22 */ YY_NO_ANCHOR,
-		/* 23 */ YY_NO_ANCHOR,
-		/* 24 */ YY_NO_ANCHOR
+		/* 23 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
 "20:9,19:2,20,19:2,20:18,19,20:4,7,10,20,13,14,5,2,20,3,20,6,16,15:9,20,1,8," +
 "20,9,20:2,18:6,20:17,17,20:5,11,20:2,18:6,20:17,17,20:3,12,20,4,20,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,25,
-"0,1:3,2,1:4,3,1:5,4,1,2,1:2,5:2,6,7,1")[0];
+	private int yy_rmap[] = unpackFromString(1,24,
+"0,1:8,2,1:5,3,1:3,4:2,5,6,1")[0];
 
-	private int yy_nxt[][] = unpackFromString(8,21,
-"1,2,3,4,5,6,7,8,9,22,10,11,12,13,14,15,23,24:2,16,24,-1:36,17:2,-1:12,18,-1" +
-":27,15:2,-1:19,20:2,-1,20,-1:11,19,-1:26,15:2,21,-1:3");
+	private int yy_nxt[][] = unpackFromString(7,21,
+"1,2,3,4,5,6,7,8,9,21,10,11,12,13,14,15,22,23:2,16,23,-1:29,17,-1:27,15:2,-1" +
+":19,19:2,-1,19,-1:11,18,-1:26,15:2,20,-1:3");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -337,32 +336,28 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -17:
 						break;
 					case 17:
-						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+						{ return new Symbol(sym.LSHIFT); }
 					case -18:
 						break;
 					case 18:
-						{ return new Symbol(sym.LSHIFT); }
+						{ return new Symbol(sym.RSHIFT); }
 					case -19:
 						break;
 					case 19:
-						{ return new Symbol(sym.RSHIFT); }
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
 					case -20:
 						break;
-					case 20:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+					case 21:
+						{ System.err.println("Illegal character: "+yytext()); }
 					case -21:
 						break;
 					case 22:
-						{ System.err.println("Illegal character: "+yytext()); }
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
 					case -22:
 						break;
 					case 23:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
-					case -23:
-						break;
-					case 24:
 						{ System.err.println("Illegal character: "+yytext()); }
-					case -24:
+					case -23:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
