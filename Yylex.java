@@ -209,21 +209,24 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 15 */ YY_NO_ANCHOR,
 		/* 16 */ YY_NO_ANCHOR,
 		/* 17 */ YY_NO_ANCHOR,
-		/* 18 */ YY_NOT_ACCEPT,
+		/* 18 */ YY_NO_ANCHOR,
 		/* 19 */ YY_NO_ANCHOR,
 		/* 20 */ YY_NO_ANCHOR,
-		/* 21 */ YY_NO_ANCHOR
+		/* 21 */ YY_NOT_ACCEPT,
+		/* 22 */ YY_NO_ANCHOR,
+		/* 23 */ YY_NO_ANCHOR,
+		/* 24 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"17:9,16:2,17,16:2,17:18,16,17:4,6,17:2,10,11,4,2,17,3,17,5,13,12:9,17,1,7,1" +
-"7,8,17:2,15:6,17:17,14,17:5,9,17:2,15:6,17:17,14,17:7,0:2")[0];
+"20:9,19:2,20,19:2,20:18,19,20:4,7,10,20,13,14,5,2,20,3,20,6,16,15:9,20,1,8," +
+"20,9,20:2,18:6,20:17,17,20:5,11,20:2,18:6,20:17,17,20:3,12,20,4,20,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,22,
-"0,1:3,2,1:3,3,1:3,4,1,2,1:2,5:2,6,7,1")[0];
+	private int yy_rmap[] = unpackFromString(1,25,
+"0,1:3,2,1:4,3,1:5,4,1,2,1:2,5:2,6,7,1")[0];
 
-	private int yy_nxt[][] = unpackFromString(8,18,
-"1,2,3,4,5,6,7,8,19,9,10,11,12,20,21:2,13,21,-1:30,14:2,-1:11,15,-1:22,12:2," +
-"-1:16,17:2,-1,17,-1:10,16,-1:21,12:2,18,-1:3");
+	private int yy_nxt[][] = unpackFromString(8,21,
+"1,2,3,4,5,6,7,8,9,22,10,11,12,13,14,15,23,24:2,16,24,-1:36,17:2,-1:12,18,-1" +
+":27,15:2,-1:19,20:2,-1,20,-1:11,19,-1:26,15:2,21,-1:3");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -286,68 +289,80 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -5:
 						break;
 					case 5:
-						{ return new Symbol(sym.TIMES); }
+						{ return new Symbol(sym.NOT); }
 					case -6:
 						break;
 					case 6:
-						{ return new Symbol(sym.DIVIDE); }
+						{ return new Symbol(sym.TIMES); }
 					case -7:
 						break;
 					case 7:
-						{ return new Symbol(sym.MOD); }
+						{ return new Symbol(sym.DIVIDE); }
 					case -8:
 						break;
 					case 8:
-						{ System.err.println("Illegal character: "+yytext()); }
+						{ return new Symbol(sym.MOD); }
 					case -9:
 						break;
 					case 9:
-						{ return new Symbol(sym.POW); }
+						{ System.err.println("Illegal character: "+yytext()); }
 					case -10:
 						break;
 					case 10:
-						{ return new Symbol(sym.LPAREN); }
+						{ return new Symbol(sym.AND); }
 					case -11:
 						break;
 					case 11:
-						{ return new Symbol(sym.RPAREN); }
+						{ return new Symbol(sym.XOR); }
 					case -12:
 						break;
 					case 12:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+						{ return new Symbol(sym.OR); }
 					case -13:
 						break;
 					case 13:
-						{ /* ignore white space. */ }
+						{ return new Symbol(sym.LPAREN); }
 					case -14:
 						break;
 					case 14:
-						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
+						{ return new Symbol(sym.RPAREN); }
 					case -15:
 						break;
 					case 15:
-						{ return new Symbol(sym.LSHIFT); }
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
 					case -16:
 						break;
 					case 16:
-						{ return new Symbol(sym.RSHIFT); }
+						{ /* ignore white space. */ }
 					case -17:
 						break;
 					case 17:
-						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+						{ return new Symbol(sym.NUMBER, new Integer(yytext())); }
 					case -18:
 						break;
-					case 19:
-						{ System.err.println("Illegal character: "+yytext()); }
+					case 18:
+						{ return new Symbol(sym.LSHIFT); }
 					case -19:
+						break;
+					case 19:
+						{ return new Symbol(sym.RSHIFT); }
+					case -20:
 						break;
 					case 20:
 						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
-					case -20:
-						break;
-					case 21:
-						{ System.err.println("Illegal character: "+yytext()); }
 					case -21:
+						break;
+					case 22:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -22:
+						break;
+					case 23:
+						{ return new Symbol(sym.NUMBER, new Integer(Integer.decode(yytext()))); }
+					case -23:
+						break;
+					case 24:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -24:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
