@@ -10,9 +10,11 @@ parser code {:
 
 terminal SEMI, PLUS, MINUS, NOT, TIMES, MOD, DIVIDE, LSHIFT, RSHIFT, AND, XOR, OR, POW, LPAREN, RPAREN;
 terminal Long LONG;
+terminal Double DOUBLE;
 
-non terminal expr_list, expr_part;
+non terminal expr_list, expr_part, exprd_part;
 non terminal Long expr;
+non terminal Double exprd;
 
 precedence left PLUS, MINUS;
 precedence right NOT;
@@ -21,8 +23,26 @@ precedence left LSHIFT, RSHIFT;
 precedence left AND, XOR, OR;
 precedence left POW;
 
-expr_list ::= expr_list expr_part | expr_part;
+expr_list ::= expr_list expr_part | expr_list exprd_part | expr_part | exprd_part;
 expr_part ::= expr:e {: System.out.println(" = "+e+";"); :} SEMI;
+exprd_part ::= exprd:e {: System.out.println(" = "+e+";"); :} SEMI;
+exprd     ::= DOUBLE:n
+	      {: RESULT=n; :}
+            | MINUS exprd:r
+	      {: RESULT=new Double(0 - r.doubleValue()); :}
+            | exprd:l PLUS expr:r
+	      {: RESULT=new Double(l.doubleValue() + r.doubleValue()); :}
+            | exprd:l MINUS expr:r
+	      {: RESULT=new Double(l.doubleValue() - r.doubleValue()); :}
+	    | exprd:l TIMES expr:r
+	      {: RESULT=new Double(l.doubleValue() * r.doubleValue()); :}
+	    | exprd:l DIVIDE expr:r
+	      {: RESULT=new Double(l.doubleValue() / r.doubleValue()); :}
+	    | exprd:l POW expr:r
+	      {: RESULT=new Double((double)Math.pow(l.doubleValue(),r.doubleValue())); :}
+	    | LPAREN exprd:e RPAREN
+	      {: RESULT=e; :}
+	    ;
 expr      ::= LONG:n
 	      {: RESULT=n; :}
             | MINUS expr:r

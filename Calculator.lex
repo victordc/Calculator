@@ -22,6 +22,7 @@ import java_cup.runtime.Symbol;
 ")" { return new Symbol(sym.RPAREN); }
 ")" { return new Symbol(sym.RPAREN); }
 [0-9]+ { return new Symbol(sym.LONG, new Long(Long.decode(yytext()))); }
+[0-9]*\.?[0-9]+([eE][\+\-]?[0-9]+)? { return new Symbol(sym.DOUBLE, new Double(yytext())); }
 0[xX][0-9a-fA-F]+ { return new Symbol(sym.LONG, new Long(Long.decode(yytext()))); }
 [ \t\r\n\f] { /* ignore white space. */ }
 . { System.err.println("Illegal character: "+yytext()); }
