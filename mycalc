@@ -3,6 +3,6 @@
 javac -target 1.5 JLex/Main.java
 java JLex.Main Calculator.lex
 mv -f Calculator.lex.java Yylex.java
-java -cp .:JLex:JavaCup java_cup.Main Calculator.cup
-javac -cp .:JLex:JavaCup -d . parser.java sym.java Yylex.java
-java -cp .:JLex:JavaCup Calculator.parser
+java -cp JavaCup java_cup.Main Calculator.cup
+javac -cp .:JavaCup -d . parser.java sym.java Yylex.java
+java -cp .:JavaCup Calculator.parser
