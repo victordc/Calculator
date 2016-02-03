@@ -18,8 +18,15 @@ import java_cup.runtime.Symbol;
 "^" { return new Symbol(sym.XOR); }
 "|" { return new Symbol(sym.OR); }
 "^" { return new Symbol(sym.POW); }
+sqrt { return new Symbol(sym.SQRT); }
+log { return new Symbol(sym.LOG); }
+sin { return new Symbol(sym.SIN); }
+cos { return new Symbol(sym.COS); }
+tan { return new Symbol(sym.TAN); }
+cot { return new Symbol(sym.COT); }
+sec { return new Symbol(sym.SEC); }
+csc { return new Symbol(sym.CSC); }
 "(" { return new Symbol(sym.LPAREN); }
-")" { return new Symbol(sym.RPAREN); }
 ")" { return new Symbol(sym.RPAREN); }
 [0-9]*\.?[0-9]+([eE][\+\-]?[0-9]+)? { return new Symbol(sym.DOUBLE, new Double(yytext())); }
 [0-9]+ { return new Symbol(sym.LONG, new Long(Long.decode(yytext()))); }

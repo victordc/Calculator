@@ -211,29 +211,53 @@ class Yylex implements java_cup.runtime.Scanner {
 		/* 17 */ YY_NO_ANCHOR,
 		/* 18 */ YY_NO_ANCHOR,
 		/* 19 */ YY_NO_ANCHOR,
-		/* 20 */ YY_NOT_ACCEPT,
+		/* 20 */ YY_NO_ANCHOR,
 		/* 21 */ YY_NO_ANCHOR,
 		/* 22 */ YY_NO_ANCHOR,
-		/* 23 */ YY_NOT_ACCEPT,
+		/* 23 */ YY_NO_ANCHOR,
 		/* 24 */ YY_NO_ANCHOR,
 		/* 25 */ YY_NO_ANCHOR,
-		/* 26 */ YY_NOT_ACCEPT,
+		/* 26 */ YY_NO_ANCHOR,
 		/* 27 */ YY_NO_ANCHOR,
-		/* 28 */ YY_NO_ANCHOR,
-		/* 29 */ YY_NOT_ACCEPT
+		/* 28 */ YY_NOT_ACCEPT,
+		/* 29 */ YY_NO_ANCHOR,
+		/* 30 */ YY_NO_ANCHOR,
+		/* 31 */ YY_NOT_ACCEPT,
+		/* 32 */ YY_NO_ANCHOR,
+		/* 33 */ YY_NO_ANCHOR,
+		/* 34 */ YY_NOT_ACCEPT,
+		/* 35 */ YY_NO_ANCHOR,
+		/* 36 */ YY_NO_ANCHOR,
+		/* 37 */ YY_NOT_ACCEPT,
+		/* 38 */ YY_NO_ANCHOR,
+		/* 39 */ YY_NOT_ACCEPT,
+		/* 40 */ YY_NO_ANCHOR,
+		/* 41 */ YY_NOT_ACCEPT,
+		/* 42 */ YY_NO_ANCHOR,
+		/* 43 */ YY_NOT_ACCEPT,
+		/* 44 */ YY_NO_ANCHOR,
+		/* 45 */ YY_NOT_ACCEPT,
+		/* 46 */ YY_NOT_ACCEPT,
+		/* 47 */ YY_NOT_ACCEPT,
+		/* 48 */ YY_NOT_ACCEPT,
+		/* 49 */ YY_NOT_ACCEPT
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"22:9,21:2,22,21:2,22:18,21,22:4,7,10,22,13,14,5,2,22,3,16,6,18,15:9,22,1,8," +
-"22,9,22:2,20:4,17,20,22:17,19,22:5,11,22:2,20:4,17,20,22:17,19,22:3,12,22,4" +
-",22,0:2")[0];
+"34:9,33:2,34,33:2,34:18,33,34:4,7,10,34,25,26,5,2,34,3,28,6,30,27:9,34,1,8," +
+"34,9,34:2,32:4,29,32,34:17,31,34:5,11,34:2,23,32,22,32,24,32,19,34,20,34:2," +
+"17,34,21,18,34,14,15,13,16,34:3,31,34:3,12,34,4,34,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,30,
-"0,1:8,2,1:5,3,1:3,4,5,6,7,8,5,9,4,1,10:2")[0];
+	private int yy_rmap[] = unpackFromString(1,50,
+"0,1:8,2,1:5,3,1:10,4,1,5,6,7,8,9,10,11,1,12,13,14,15,16,17,18,19,20,21,20,4" +
+",22,12")[0];
 
-	private int yy_nxt[][] = unpackFromString(11,23,
-"1,2,3,4,5,6,7,8,9,21,10,11,12,13,14,15,24,27,22,27:2,16,27,-1:31,17,-1:29,1" +
-"5,20,23,15,-1:19,19,-1,19:2,-1,19,-1:17,25,-1:2,25,-1:13,18,-1:28,15,20,23," +
-"15,26,-1:5,29:2,-1:11,28,-1:2,28,-1:19,25,-1,23,25,-1:19,28,-1:2,28,-1:4");
+	private int yy_nxt[][] = unpackFromString(23,35,
+"1,2,3,4,5,6,7,8,9,29,10,11,12,32,35:2,38,40,35:4,42,35:2,13,14,15,44,35,30," +
+"35:2,16,35,-1:43,17,-1:50,45,-1:2,15,46,45,15,-1:26,26:3,-1:2,26,-1,26:2,-1" +
+",26,-1:17,48,-1:28,18,-1:49,45,-1:2,15,46,45,15,47,-1:24,19,-1:27,28,-1:5,3" +
+"1,-1:3,34,-1:34,45,-1:2,33,-1,45,33,-1:26,20,-1:39,36,-1:2,36,-1:25,21,-1:3" +
+"6,37,-1:30,22,-1:33,39,-1:38,23,-1:25,41,-1:4,43,-1:29,24,-1:2,25,-1:45,33," +
+"-1:2,33,-1:6,49:2,-1:23,36,-1:2,36,-1:20,27,-1:18");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException {
@@ -352,32 +376,80 @@ class Yylex implements java_cup.runtime.Scanner {
 					case -19:
 						break;
 					case 19:
-						{ return new Symbol(sym.LONG, new Long(Long.decode(yytext()))); }
+						{ return new Symbol(sym.SIN); }
 					case -20:
 						break;
-					case 21:
-						{ System.err.println("Illegal character: "+yytext()); }
+					case 20:
+						{ return new Symbol(sym.SEC); }
 					case -21:
 						break;
-					case 22:
-						{ return new Symbol(sym.DOUBLE, new Double(yytext())); }
+					case 21:
+						{ return new Symbol(sym.TAN); }
 					case -22:
 						break;
-					case 24:
-						{ System.err.println("Illegal character: "+yytext()); }
+					case 22:
+						{ return new Symbol(sym.LOG); }
 					case -23:
 						break;
-					case 25:
-						{ return new Symbol(sym.DOUBLE, new Double(yytext())); }
+					case 23:
+						{ return new Symbol(sym.CSC); }
 					case -24:
 						break;
-					case 27:
-						{ System.err.println("Illegal character: "+yytext()); }
+					case 24:
+						{ return new Symbol(sym.COS); }
 					case -25:
 						break;
-					case 28:
-						{ return new Symbol(sym.DOUBLE, new Double(yytext())); }
+					case 25:
+						{ return new Symbol(sym.COT); }
 					case -26:
+						break;
+					case 26:
+						{ return new Symbol(sym.LONG, new Long(Long.decode(yytext()))); }
+					case -27:
+						break;
+					case 27:
+						{ return new Symbol(sym.SQRT); }
+					case -28:
+						break;
+					case 29:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -29:
+						break;
+					case 30:
+						{ return new Symbol(sym.DOUBLE, new Double(yytext())); }
+					case -30:
+						break;
+					case 32:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -31:
+						break;
+					case 33:
+						{ return new Symbol(sym.DOUBLE, new Double(yytext())); }
+					case -32:
+						break;
+					case 35:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -33:
+						break;
+					case 36:
+						{ return new Symbol(sym.DOUBLE, new Double(yytext())); }
+					case -34:
+						break;
+					case 38:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -35:
+						break;
+					case 40:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -36:
+						break;
+					case 42:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -37:
+						break;
+					case 44:
+						{ System.err.println("Illegal character: "+yytext()); }
+					case -38:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
