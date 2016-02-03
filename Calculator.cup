@@ -30,15 +30,35 @@ exprd     ::= DOUBLE:n
 	      {: RESULT=n; :}
             | MINUS exprd:r
 	      {: RESULT=new Double(0 - r.doubleValue()); :}
-            | exprd:l PLUS exprd:r
+            | exprd:l PLUS exprd:r 
 	      {: RESULT=new Double(l.doubleValue() + r.doubleValue()); :}
-            | exprd:l MINUS exprd:r
+            | expr:l PLUS exprd:r 
+	      {: RESULT=new Double(l.doubleValue() + r.doubleValue()); :}
+            | exprd:l PLUS expr:r
+	      {: RESULT=new Double(l.doubleValue() + r.doubleValue()); :}
+            | exprd:l MINUS exprd:r 
 	      {: RESULT=new Double(l.doubleValue() - r.doubleValue()); :}
-	    | exprd:l TIMES exprd:r
+            | expr:l MINUS exprd:r 
+	      {: RESULT=new Double(l.doubleValue() - r.doubleValue()); :}
+            | exprd:l MINUS expr:r
+	      {: RESULT=new Double(l.doubleValue() - r.doubleValue()); :}
+	    | exprd:l TIMES exprd:r 
 	      {: RESULT=new Double(l.doubleValue() * r.doubleValue()); :}
-	    | exprd:l DIVIDE exprd:r
+	    | expr:l TIMES exprd:r 
+	      {: RESULT=new Double(l.doubleValue() * r.doubleValue()); :}
+	    | exprd:l TIMES expr:r
+	      {: RESULT=new Double(l.doubleValue() * r.doubleValue()); :}
+	    | exprd:l DIVIDE exprd:r 
 	      {: RESULT=new Double(l.doubleValue() / r.doubleValue()); :}
-	    | exprd:l POW exprd:r
+	    | expr:l DIVIDE exprd:r 
+	      {: RESULT=new Double(l.doubleValue() / r.doubleValue()); :}
+	    | exprd:l DIVIDE expr:r
+	      {: RESULT=new Double(l.doubleValue() / r.doubleValue()); :}
+	    | exprd:l POW exprd:r 
+	      {: RESULT=new Double((double)Math.pow(l.doubleValue(),r.doubleValue())); :}
+	    | expr:l POW exprd:r 
+	      {: RESULT=new Double((double)Math.pow(l.doubleValue(),r.doubleValue())); :}
+	    | exprd:l POW expr:r
 	      {: RESULT=new Double((double)Math.pow(l.doubleValue(),r.doubleValue())); :}
 	    | LPAREN exprd:e RPAREN
 	      {: RESULT=e; :}
