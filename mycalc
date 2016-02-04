@@ -1,6 +1,6 @@
 #!/bin/bash
 
-javac -target 1.5 JLex/Main.java
+javac -target 1.8 JLex/Main.java
 java JLex.Main Calculator.lex
 mv -f Calculator.lex.java Yylex.java
 java -cp JavaCup java_cup.Main Calculator.cup
